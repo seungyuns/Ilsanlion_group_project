@@ -1,0 +1,33 @@
+{%extends 'base.html' %}
+{%block content %}
+<br>
+<div class="container">
+<a href="{%url 'new'%}"  class="btn btn-primary">글 작성하기</a><br>
+</div>
+<hr>
+<div class="container">
+    
+    {%for blog in blogs.all%}
+    <br>
+    <div class="card">
+        <div class="card-body">
+            
+            <h5 class="card-title">{{blog.title}}</h5>
+            <p class="card-text">{{blog.pub_date}}</p><br>
+            <p class="card-text">{{blog.summary}}</p>
+            <a href="{%url 'detail' blog.id%}"  class="btn btn-primary">자세히 보기</a><br>
+            <br>
+            <form action="{%url 'destroy' blog.id%}">
+                <button class="btn btn-outline-danger" type="submit">삭제</button>
+            </form>    
+
+
+
+        </div>      
+    </div>
+    {%endfor%}
+    
+</div>
+{%endblock%}
+
+

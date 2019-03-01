@@ -31,13 +31,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts.apps.AccountsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ilsanprojectapp.apps.IlsanprojectappConfig'
+    'ilsanprojectapp.apps.IlsanprojectappConfig',
+    'blog.apps.BlogConfig',
+    'noticeapp.apps.NoticeappConfig',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +58,7 @@ ROOT_URLCONF = 'ilsanproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['ilsanproject/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,3 +122,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'ilsanprojectapp', 'static')
+] # 현재 static 파일들이 어디에 위치하는지 쓰는곳 portfolio앱 안에 static이라는 폴더에 추가.
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#static 파일들이 어디로 모일 것인지를 쓰는 곳

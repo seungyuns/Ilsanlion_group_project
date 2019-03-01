@@ -1,0 +1,17 @@
+{%extends 'base.html' %}
+{%block content %}
+
+<div class="container">
+        <br>
+        <div class="card">
+            <div class="card-body">
+                
+                <h5 class="card-title">{{detail.title}}</h5>
+                <p class="card-text">{{detail.pub_date}}</p><br>
+                <p class="card-text">{{detail.body}}</p>
+                <a href="{%url 'show'%}"  class="btn btn-primary">전체글보기</a><br>
+            </div>
+        </div>
+        
+    </div>
+{%endblock%}

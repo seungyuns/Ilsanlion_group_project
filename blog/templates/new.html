@@ -1,0 +1,23 @@
+{%extends 'base.html' %}
+{%block content %}
+<div class="container">
+    <h1>글 작성페이지</h1>
+</div>
+<div class="container">
+<form action="{%url 'create'%}">
+ <h3>제목:</h3><br>
+ <input type="text" name="title"><br><br>
+ <h3>내용:</h3><br>
+ <textarea name="body" cols="50", rows="10"></textarea><br>
+ <button class="btn btn-primary" type="submit">제출</button>
+ 
+</div>
+
+</form>
+
+
+
+
+
+
+{%endblock%}
