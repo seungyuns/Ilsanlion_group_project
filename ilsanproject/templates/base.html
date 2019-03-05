@@ -1,10 +1,123 @@
 <head>
     {% load staticfiles %}
+
+  <!-- bootstrap CDN-->
+  
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
-    </head>
+  
+  <!-- bootstrap -->
+    <link rel="stylesheet" href='/static/css/bootstrap.css'>
+    <link rel="stylesheet" href="/static/css/seungyun.css">
+  </head>
+
+
+    <body>
+       
+      <nav class="navbar navbar-expand-lg " >    
+        <a class="navbar-brand" style="font-weight: 600; font-size:25px;" href="{%url 'home'%}"> 일산 Lion </a>
+          <button type="button" class="navbar-toggler ml-auto custom-toggler" data-toggle="collapse" 
+            data-target="#navbarSupportedContent" arial-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{%url 'home'%}">소개<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'show' %}">게시판</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'show' %}">공지사항</a>
+                </li>
+              </ul>
+                
+            <!-- 회원가입창 -->
+            <ul class="form-inline my-2 my-lg-0">
+                {% if user.is_authenticated %}
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">환영합니다. {{ user.username }} 님!</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+                        <form id="logout" method="POST" action="{% url 'logout' %}">
+                          {% csrf_token %} <input type="hidden" />
+                        </form>
+                    </div>
+                </li>
+              {% else %}
+                <li class="nav-item">
+                  <a class="nav-item nav-link" href="{% url 'signup' %}">Signup</a>
+                </li>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li class="nav-item">
+                  <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+              {% endif %}
+             </ul>
+              <!--
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="burtton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  접속하기
+                </a> 
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                </div>    
+                 
+              </li>
+            -->
+
+            </div>
+          </div>
+      </nav>
+    </body>
+      {% block content %}
+    
+      {% endblock %}
+
+      
+      <section>
+          <h1>   &nbsp;&nbsp;</h1>
+          <h3>   &nbsp;&nbsp;</h3>
+        </section>
+        <div class="footer">
+          <div id="button"></div>
+        <div id="container">
+        <div id="cont">
+          
+        <div class="footer_center">
+             <h3>Copyright &copy; 전호설, 한현수, 신승윤</h3>
+        </div>
+        </div>
+        </div>
+        </div>
+<!-- 
+    <footer style="background-color: rgb(26, 24, 24); color: #ffffff">
+      <div class="container">
+        <br>
+        <div class="row">
+          <div class="col-sm-2" style="text-align: center;"><h5>Copyright &copy; 2019</h5> 전호설, 한현수, 신승윤 </div>
+          <div class="col-sm-4"><h5>대표자 소개</h5> <p>중앙대학교 전호설</p></div>
+          <div class="col-sm-2"><h4 style="text-align: center;">Navigation</h4>
+            <div class="list-group">
+              <a href="#" class="list-group-item">소개</a>
+              <a href="#" class="list-group-item">소개</a>
+              <a href="#" class="list-group-item">소개</a>
+            </div> 
+        </div>
+        
+      </div>
+    
+    
+    
+    </footer>  -->
+
+
+<!--
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="{%url 'home'%}">Likelion</a>
@@ -62,9 +175,7 @@
           </nav>
 
 
-          <!-- 슬라이드-->
-         
+          <!--슬라이드-->
+<!--
 </body>        
-{% block content %}
-    
-{% endblock %}
+-->

@@ -1,5 +1,18 @@
 {%extends 'base.html' %}
+{% load staticfiles %}
+
 {%block content %}
+
+<body>
+        <style type="text/css"> 
+            .card-title{
+                font-weight: 600;
+                color:black;
+            }
+            .card-text{
+                color:black;
+            }
+        </style>
 <br>
 <div class="container">
 <a href="{%url 'new'%}"  class="btn btn-primary">글 작성하기</a><br>
@@ -27,7 +40,8 @@
     </div>
     {%endfor%}
     
-</div>
+    </div>
+</body>
 {%endblock%}
 
 
