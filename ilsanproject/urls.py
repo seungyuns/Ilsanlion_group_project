@@ -15,10 +15,10 @@ urlpatterns = [
     ###################호설########
     path('',blog.views.home,name='home'),
     path('blog/show/',blog.views.show,name='show'),
-    path('blog/detail/<int:blog_id>',blog.views.detail,name='detail'),
+    path('blog/detail/<int:blog_id>/',blog.views.detail,name='detail'),
     path('blog/new/',blog.views.new,name='new'),
     path('blog/create/',blog.views.create,name='create'),
-    path('blog/destroy/<int:blog_id>',blog.views.destroy,name='destroy'),
+    path('blog/destroy/<int:blog_id>/',blog.views.destroy,name='destroy'),
     #######################승윤 #######
     path('notice/',noticeapp.views.notice, name='notice'),
 ]
