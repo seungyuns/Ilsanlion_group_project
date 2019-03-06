@@ -1,1 +1,1 @@
-pip freeze > requirements.txt
+3.7.2
