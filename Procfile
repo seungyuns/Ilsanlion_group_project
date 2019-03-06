@@ -1,0 +1,1 @@
+web: gunicorn ilsanproject.wsgi --log-file -
